@@ -1,0 +1,117 @@
+{
+  "awardslist": [
+    {
+      "Id": 1,
+      "AwardCategory": "Best Actor",
+      "Nominees": [
+        "Will Smith",
+        "Javier Bardem",
+        "Benedict Cumberbatch",
+        "Andrew Garfield"
+      ],
+      "vote": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Id": 2,
+      "AwardCategory": "Best Director",
+      "Nominees": [
+        "Jane Campion",
+        "Kenneth Branagh",
+        "Ryusuke Hamaguchi",
+        "Paul Thomas Anderson"
+      ],
+      "vote": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Id": 3,
+      "AwardCategory": "Best Movie",
+      "Nominees": [
+        "KING RICHARD",
+        "CODA",
+        "DON'T LOOK UP",
+        "BELFAST"
+      ],
+      "vote": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "user": [
+    {
+      "name": " Deepthi",
+      "email": "dee@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "w",
+      "email": "vs@g.c",
+      "id": 3
+    },
+    {
+      "name": "prasanna",
+      "email": "deepthik@smartrabbitz.com",
+      "id": 4
+    },
+    {
+      "name": "dsad",
+      "email": "dee@gmail.com",
+      "id": 5
+    },
+    {
+      "name": "dsad",
+      "email": "dee@gmail.com",
+      "id": 6
+    },
+    {
+      "name": " Deepthi",
+      "email": "deepthik@smartrabbitz.com",
+      "id": 7
+    },
+    {
+      "name": "dsad",
+      "email": "dee@gmail.com",
+      "id": 8
+    },
+    {
+      "name": "dsad",
+      "email": "Tim@yahoo.com",
+      "id": 9
+    },
+    {
+      "name": "dsad",
+      "email": "deepthik@smartrabbitz.com",
+      "id": 10
+    },
+    {
+      "name": "dsad",
+      "email": "dee@gmail.com",
+      "id": 11
+    }
+  ],
+  "vote": [
+    {
+      "1": 0,
+      "2": 0,
+      "3": 1,
+      "4": 1,
+      "id": 1
+    },
+    {
+      "4": 1,
+      "id": 2
+    }
+  ]
+}

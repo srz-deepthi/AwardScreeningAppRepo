@@ -1,54 +1,19 @@
-import { BrowserRouter, Route ,Routes, Link } from 'react-router-dom'
+import { BrowserRouter, Route ,Routes } from 'react-router-dom'
+import { Provider } from 'react-redux';
+import Store from './redux/store'
 import Cards from "./components/cards"
-import User from "./components/userDetails"
-function App() {
+import Vote from "./components/Vote"
 
-  const data = {
-    "documents": [
-      {
-        "Id": 1,
-        "AwardCategory": "Best Actor",
-        "Nominees": 
-        [ 
-          "Will Smith",
-          "Javier Bardem",
-          "Benedict Cumberbatch",
-          "Andrew Garfield"
-        ]        
-      },
-      {
-        "Id": 2,
-        "AwardCategory": "Best Director",
-        "Nominees": [
-              "Jane Campion",
-              "Kenneth Branagh",
-              "Ryusuke Hamaguchi",
-              "Paul Thomas Anderson"
-        ]
-      },
-      {
-        "Id": 3,
-        "AwardCategory": "Best Movie",
-        "Nominees": [
-              "KING RICHARD",
-              "CODA",
-              "DON'T LOOK UP",
-              "BELFAST"
-        ]
-      }
-    ]
-  }
+function App() {
   return (
-    <div>
-        {/* <AwardCategories/>  */}
+    <Provider store={Store}>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Cards data = {data.documents}/>}/>
-            <Route path="/user" element={ <User/> }/>
+            <Route path='/' element={<Cards/>}/>
+            <Route path="/vote" element={ <Vote/> }/>
           </Routes>
         </BrowserRouter>
-               
-    </div>
+    </Provider>         
   );
 }
 

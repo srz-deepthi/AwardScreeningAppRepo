@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useState } from "react"
+import { connect } from "react-redux";
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -9,11 +11,14 @@ import IconButton from '@mui/material/IconButton';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom'
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import TextField from '@mui/material/TextField'
+import TextField from '@mui/material/TextField';
+import { listNominees , addUser, updateVote } from '../redux/action';
+import { useNavigate } from 'react-router';
+import Divider from '@mui/material/Divider'
+import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -39,14 +44,29 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Cards(props) {
+const Cards = (props)  => {
 
-    //modal
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+  let navigate = useNavigate();
+
+  //userDetails
+  const [user,setUser] = useState({
+    name:"",
+    email:""
+  })
+
+  // const [voteNominees,setVoteNominees]=useState({
+  //   id:0,
+  //   1:0,
+  //   2:0,
+  //   3:0,
+  //   4:0
+  // })
+  //modal
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   
-    //toggle flag
+  //toggle flag
   const [flagId,setFlag] = React.useState({
         fId:"",
         fExp:false,
@@ -54,6 +74,10 @@ export default function Cards(props) {
 
   const previousFlagValue = React.useRef("");
   
+  React.useEffect(() =>{
+    props.listNominees()
+  },[])
+
   React.useEffect(() => {
     previousFlagValue.current = flagId;
   }, [flagId]);
@@ -74,7 +98,40 @@ export default function Cards(props) {
             }
         )}
   }
+  //user details 
+  const handleC = (e) => {
+    const name=e.target.name
+    setUser(
+      {
+        ...user,
+        [name]:e.target.value
+      }
+    )
+    console.log("user",user)
+
+  }
+
+  //submit user
+  const handleSubmit = () => {
+    props.addUser(user)
+    navigate('/vote');
+  }
+
+  // const handleCount=(Id,index) => {
+  //   console.log("count",Id,index)
+  //   const name=index
+  //   setVoteNominees({
+  //     ...voteNominees,
+  //     id:Id,
+  //     [name]:1 //props.[index]+1
+
+  //   })
+  //   props.updateVote(voteNominees)
+  //   console.log("vote",voteNominees)
+  // }
   return (
+    <>
+    { ( props.data.length > 0 )?
     <>
     { props.data.map( (item,key) => (
               <div style={{ paddingLeft: 130 , paddingTop: 30 , paddingBottom: 30 }}>
@@ -97,9 +154,15 @@ export default function Cards(props) {
                 />                
                 { item.Id === flagId.fId ? 
                 <Collapse in={flagId.fExp} timeout="auto" unmountOnExit>
-                  <CardContent>
-                     { item.Nominees.map((nom, index) => (<>
-                    { index+1 } { nom } <br/></>)) } <br/>                     
+                  <CardContent sx={{ paddingBottom:5}}>
+                     { item.Nominees.map((nom, index) => (<div style={{padding:10}}>
+                      <div style={{}} >
+                        { index+1 } { nom }
+                      </div>
+                    {/* <div style={{textAlign:"end"}} > 
+                    onClick={() => handleCount(item.Id,index+1)}
+                    <ThumbUpAltRoundedIcon sx={{color:"red"}}/></div> */}
+                    <Divider /><br/></div>)) }                      
                   </CardContent>
                 </Collapse>:""}
               </Card>
@@ -118,33 +181,61 @@ export default function Cards(props) {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <h2 style={{ color:'#505050'}}>User Details</h2>
-              <div style={{ padding: 10 }}>
+              <h2 style={{ color:'#505050'}}>User Details</h2><hr/>
+              <form onSubmit={handleSubmit}> 
                 <div style={{ padding: 10 }}>
-                <TextField
-                  label="Name"
-                  id="outlined-size-small"
-                  size="small"
-                />
+                  <div style={{ padding: 10, paddingLeft:20 }}>
+                  <TextField
+                    sx={{  width: 330 }}
+                    label="Name"
+                    name="name"
+                    id="outlined-size-small"
+                    size="small"
+                    value={user.name}
+                    onChange={handleC}
+                    required
+                  />
+                  </div>
+                  <div style={{ padding: 10 ,paddingLeft:20}}>
+                  <TextField
+                    sx={{  width: 330 }}
+                    label="Email"
+                    name="email"
+                    id="outlined-size-small"
+                    size="small"
+                    type="email"
+                    onChange={handleC}
+                    required
+                  />
+                  </div>
+                  <div style={{ padding: 10 }}>
+                    <Button variant="contained" sx ={{ mx:2,width: 150 , color: "white" }} onClick={handleClose}>Cancel</Button>
+                    <Button variant="contained" sx ={{ width: 150 , color: "white"}} type="submit" >
+                            OK
+                    </Button>
+                  </div>
                 </div>
-                <div style={{ padding: 10 }}>
-                <TextField
-                  label="Email"
-                  id="outlined-size-small"
-                  size="small"
-                  type="email"
-                />
-                </div>
-                <div style={{ padding: 10 }}>
-                  <Button variant="contained" sx ={{ mx:2,width: 150 , color: "white" }} onClick={handleClose}>Cancel</Button>
-                  <Button variant="contained" sx ={{ width: 150 , color: "white"}}>OK</Button>
-                </div>
-              </div>
+            </form>
             </Box>
           </Modal>
         </div>
+      </> : "" }
       </>
   );
 }
-{/* <Button onClick={handleOpen}>Open modal</Button> */}
 
+const mapStateToProps = state => {
+  return {
+      data: state.awardslist
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    listNominees: () => dispatch(listNominees()),
+    addUser: (user) => dispatch(addUser(user)),
+    // updateVote: (voteNominees) => dispatch(updateVote(voteNominees))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cards)
