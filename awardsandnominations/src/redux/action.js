@@ -11,7 +11,8 @@ export const addUser = (user) =>{
     }
 }
 
-export const updateVote = (vote) => {    
+export const updateVote = (vote) => {  
+    console.log("vote in saga",vote)  
     return {
         type: "UPDATE_VOTE",
         payload : vote 

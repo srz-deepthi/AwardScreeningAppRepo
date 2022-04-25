@@ -7,6 +7,5 @@ export default function * rootSaga(){
     watchGetList(),
     watchAddUser(),
     watchUpdateVote(),
-
   ])
 }

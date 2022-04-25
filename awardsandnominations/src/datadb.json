@@ -1,7 +1,7 @@
 {
   "awardslist": [
     {
-      "Id": 1,
+      "id": 1,
       "AwardCategory": "Best Actor",
       "Nominees": [
         "Will Smith",
@@ -10,14 +10,15 @@
         "Andrew Garfield"
       ],
       "vote": [
-        0,
+        2,
         0,
         0,
         0
-      ]
+      ],
+      "winner": ""
     },
     {
-      "Id": 2,
+      "id": 2,
       "AwardCategory": "Best Director",
       "Nominees": [
         "Jane Campion",
@@ -28,12 +29,13 @@
       "vote": [
         0,
         0,
-        0,
-        0
-      ]
+        1,
+        1
+      ],
+      "winner": ""
     },
     {
-      "Id": 3,
+      "id": 3,
       "AwardCategory": "Best Movie",
       "Nominees": [
         "KING RICHARD",
@@ -44,74 +46,37 @@
       "vote": [
         0,
         0,
-        0,
+        2,
         0
-      ]
+      ],
+      "winner": ""
     }
   ],
   "user": [
     {
       "name": " Deepthi",
       "email": "dee@gmail.com",
-      "id": 2
-    },
-    {
-      "name": "w",
-      "email": "vs@g.c",
-      "id": 3
-    },
-    {
-      "name": "prasanna",
-      "email": "deepthik@smartrabbitz.com",
-      "id": 4
-    },
-    {
-      "name": "dsad",
-      "email": "dee@gmail.com",
-      "id": 5
-    },
-    {
-      "name": "dsad",
-      "email": "dee@gmail.com",
-      "id": 6
-    },
-    {
-      "name": " Deepthi",
-      "email": "deepthik@smartrabbitz.com",
-      "id": 7
-    },
-    {
-      "name": "dsad",
-      "email": "dee@gmail.com",
-      "id": 8
-    },
-    {
-      "name": "dsad",
-      "email": "Tim@yahoo.com",
-      "id": 9
-    },
-    {
-      "name": "dsad",
-      "email": "deepthik@smartrabbitz.com",
-      "id": 10
-    },
-    {
-      "name": "dsad",
-      "email": "dee@gmail.com",
-      "id": 11
-    }
-  ],
-  "vote": [
-    {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1,
       "id": 1
     },
     {
-      "4": 1,
+      "name": "deepthi",
+      "email": "Inquiry@cognizant.com",
       "id": 2
+    },
+    {
+      "name": "vishnu",
+      "email": "vshRaj@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "prasaana",
+      "email": "prasanna@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "deepthi",
+      "email": "Inquiry@cognizant.com",
+      "id": 5
     }
   ]
 }
