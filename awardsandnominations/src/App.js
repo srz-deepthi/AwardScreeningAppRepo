@@ -6,7 +6,6 @@ import Vote from "./components/Vote"
 import Timer from "./components/timer"
 import Winners from "./components/winners"
 import { useState } from "react"
-import { TimelapseSharp } from '@mui/icons-material';
 
 function App() {
 

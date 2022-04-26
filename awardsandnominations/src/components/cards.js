@@ -8,16 +8,14 @@ import CardContent from '@mui/material/CardContent';
 import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
-import { listNominees, addUser, updateVote } from '../redux/action';
+import { listNominees, addUser } from '../redux/action';
 import { useNavigate } from 'react-router';
-import Divider from '@mui/material/Divider';
-import Timer from './timer'
+import {Link} from 'react-router-dom'
 
 const style = {
   position: 'absolute',
@@ -25,7 +23,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: '#f7f37c',           
+  bgcolor: 'white',           
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -115,7 +113,7 @@ const Cards = (props) => {
         <>
           {props.data.map((item, key) => (
             <div style={{ paddingLeft: 130, paddingTop: 30, paddingBottom: 30 }}>
-              <Card sx={{ maxWidth: 1200 , bgcolor:"#f7f37c",color:"#4a4a36"}}>
+              <Card sx={{ maxWidth: 1200 ,color:"#4a4a36"}}>
                 <CardHeader sx={{ fontFamily: "Verdana, sans-serif", color: "#696969", fontSize: 30 }}
                   avatar={
                     <Avatar sx={{ bgcolor:"#baba99" }} aria-label="recipe">

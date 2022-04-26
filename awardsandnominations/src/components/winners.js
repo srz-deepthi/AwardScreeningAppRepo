@@ -18,7 +18,7 @@ const Winners = (props) => {
 
             <div style={{ paddingLeft: 130, paddingTop: 30, paddingBottom: 30 }}>
 
-              <Card sx={{ maxWidth: 1200 , bgcolor:"#f7f37c",color:"#4a4a36"}}>
+              <Card sx={{ maxWidth: 1200 , color:"#4a4a36"}}>               {/* bgcolor:"#f7f37c", */}
 
                 <CardHeader sx={{ fontFamily: "Verdana, sans-serif", color: "#696969", fontSize: 50 }}
                   avatar={

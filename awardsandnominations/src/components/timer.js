@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const Timer = (props) => {
 
@@ -13,10 +14,9 @@ const Timer = (props) => {
       //Date and Time
       const dateString1 = '2022-04-20T04:30:00Z'
       const dateString2 = '2022-05-21T04:30:00Z'
-      const [sDate, setsDate] = useState(moment(dateString1).utcOffset("+05:30").format('DD MMMM YYYY h:mm A'));
-      const [eDate, seteDate] = useState(moment(dateString2).format('DD MMMM YYYY h:mm A'));
-      const [countdownDate,setCountdownDate]= useState(new Date(eDate).getTime());
-
+      const [sDate] = useState(moment(dateString1).utcOffset("+05:30").format('DD MMMM YYYY h:mm A'));
+      const [eDate] = useState(moment(dateString2).format('DD MMMM YYYY h:mm A'));
+      const [countdownDate]= useState(new Date(eDate).getTime());
 
       const [state, setState] = useState({
         days: 0,
@@ -25,7 +25,6 @@ const Timer = (props) => {
         seconds: 0,
       });
 
-      var timeValid;
 
       React.useEffect(() => {  
         props.checkTime(countdownDate)     
@@ -39,7 +38,6 @@ const Timer = (props) => {
     
           const distanceToDate = countdownDate - currentTime;
           
-          timeValid=distanceToDate;
 
           let days = Math.floor(distanceToDate / (1000 * 60 * 60 * 24));
     
@@ -102,7 +100,6 @@ const Timer = (props) => {
             <div style={{ textAlign:"center", fontSize:25, paddingTop:50, backgroundColor:"#c1ed8c",width:1050 ,color:"#999990"}}>
             Voting is over
             </div> }
-
         </div>
     </div>
   )
