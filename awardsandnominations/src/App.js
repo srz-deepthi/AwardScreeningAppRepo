@@ -1,7 +1,7 @@
 import { BrowserRouter, Route ,Routes } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import Store from './redux/store'
-import Cards from "./components/cards"
+import ListAwards from "./components/listAwards"
 import Vote from "./components/Vote"
 import Timer from "./components/timer"
 import Winners from "./components/winners"
@@ -24,7 +24,7 @@ function App() {
              {  time > new Date().getTime() ? 
               <> 
                 
-                  <Route path="/" element={<Cards/>}/>
+                  <Route path="/" element={<ListAwards/>}/>
                   <Route path="/vote" element={ <Vote/> }/> 
                   <Route path="/win" element={ <Winners/>} />
               </>:
