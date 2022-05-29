@@ -4,7 +4,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider'
-import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import '../App.css'
 import { useState } from 'react';
 import Button from '@mui/material/Button'
@@ -50,8 +50,7 @@ const AwardCategories = (props) => {
   return (<>
     <div style={{ paddingLeft: 130 , paddingTop: 30 , paddingBottom: 30 }}>
 
-        <Card sx={{ maxWidth: 1200,color:"#4a4a36"}}> 
-        {/* ,bgcolor:"#f7f37c" */}
+        <Card sx={{ maxWidth: 1200,color:"#4a4a36",bgcolor:"#F0F0F0	"}}> 
               <CardHeader sx={{ fontFamily: "Verdana, sans-serif", color: "#696969", fontSize: 30 }}
                 avatar={
                   <Avatar sx={{ bgcolor: "#baba99" }} aria-label="recipe">
@@ -68,7 +67,7 @@ const AwardCategories = (props) => {
                           { index+1 } { nom }
                         </div>
                           <div style={{textAlign:"end"}}>
-                            <ThumbUpAltRoundedIcon
+                            <ThumbUpOutlinedIcon
                              onClick={() => {toggle (index,Item.id)}} 
                              className={ tempToggle[index] ? 'toggleOn' : 'toggleOff' }/>
                           </div> 

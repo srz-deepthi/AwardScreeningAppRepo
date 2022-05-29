@@ -13,7 +13,7 @@ const Timer = (props) => {
     
       //Date and Time
       const dateString1 = '2022-04-20T04:30:00Z'
-      const dateString2 = '2022-05-21T04:30:00Z'
+      const dateString2 = '2023-05-21T04:30:00Z'
       const [sDate] = useState(moment(dateString1).utcOffset("+05:30").format('DD MMMM YYYY h:mm A'));
       const [eDate] = useState(moment(dateString2).format('DD MMMM YYYY h:mm A'));
       const [countdownDate]= useState(new Date(eDate).getTime());

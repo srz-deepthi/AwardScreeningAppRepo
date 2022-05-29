@@ -21,9 +21,9 @@ const Vote = (props)  => {
     <>
         { ( props.data.length > 0 )?
           <>
-          <div style={{ backgroundColor:"#c1ed8c", height:60, textAlign:"right", paddingRight:50, paddingTop:10}}>
+          <div style={{ border:1, height:60, textAlign:"right", paddingRight:50, paddingTop:10}}>
               <Link to='/' style={{ textDecoration:"none" , color:"white"}}>
-                <HomeOutlinedIcon sx={{ fontSize:50}}/>
+                <HomeOutlinedIcon sx={{ fontSize:40, color:'#404040'}}/>
               </Link> 
           </div>
             { props.data.map( (item,key) => (
